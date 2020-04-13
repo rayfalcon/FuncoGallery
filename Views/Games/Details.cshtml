@@ -1,0 +1,14 @@
+﻿@Model IEnumerable<FuncoGallery.Models.Game>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Name</h2>
+
+<ul>
+    <li>Quantity: @Model.Quantity</li>
+    <li>Release Date: @Model.ReleaseDate</li>
+    <li>Price: @Model.Price</li>
+</ul>
+
+

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<FuncoGallery.Models.Game>
+@{
+    ViewBag.Title = "List";
+}
+
+<a href="/Games/New" class="btn btn-primary">New Game</a>
+
+<h2>Game Inventory</h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Release Date</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    @foreach (var movie in Model)
+    {
+        <tbody>
+
+            <td><strong>@movie.Name</strong></td>
+            <td>@movie.Quantity</td>
+            <td>@movie.ReleaseDate.ToShortDateString()</td>
+            <td>$@movie.Price</td>
+
+        </tbody>
+    }
+        </table>

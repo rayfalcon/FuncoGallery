@@ -1,0 +1,45 @@
+﻿@model FuncoGallery.ViewModels.GameFormViewModel
+@{
+    ViewBag.Title = "GameForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Game</h2>
+
+@using (Html.BeginForm("Save", "Games"))
+        {
+
+<div class="form-group">
+    @Html.LabelFor(g => g.Name)
+    @Html.TextBoxFor(g => g.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(g => g.Name)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(g => g.ReleaseDate)
+    @Html.TextBoxFor(g => g.ReleaseDate, new { @class = "form-control" })
+    @Html.ValidationMessageFor(g => g.ReleaseDate)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(g => g.Quantity)
+    @Html.TextBoxFor(g => g.Quantity, new { @class = "form-control" })
+    @Html.ValidationMessageFor(g => g.Quantity)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(g => g.GenreId)
+    @Html.DropDownListFor(g => g.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+    @Html.ValidationMessageFor(g => g.GenreId)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(g => g.Price)
+    @Html.TextBoxFor(g => g.Price, new { @class = "form-control" })
+    @Html.ValidationMessageFor(g => g.Price)
+</div>
+   
+    @Html.HiddenFor(g => g.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
